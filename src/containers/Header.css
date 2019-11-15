@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One&display=swap');
+
+.Header {
+  
+  h1 {
+    font-family: 'Fjalla One', sans-serif;
+    margin: 15px 10px 10px 15px;
+    font-size: 60px;
+    color: rgb(0, 195, 255);
+    text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+  }
+}

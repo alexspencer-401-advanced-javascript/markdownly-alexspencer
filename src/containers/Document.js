@@ -2,40 +2,29 @@ import React from 'react';
 import Preview from '../components/markdown/Preview';
 import Editor from '../components/markdown/Editor';
 import styles from './Document.css';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { updateMarkdown } from '../actions/documentActions';
 import { getMarkdown } from '../selectors/documentSelectors';
+import { useSelector, useDispatch } from 'react-redux';
 
-const Document = ({ markdown, updateMarkdown }) => {
+export default function Document() {
+
+  const markdown = useSelector(state => getMarkdown(state));
+  const dispatch = useDispatch();
+  const updateMarkdownHandler = ({ target }) => dispatch(updateMarkdown(target.value));
+
   return (
     <>
         <div className={styles.Document}>
-          <Editor markdown={markdown} updateMarkdown={updateMarkdown} />
+          <Editor markdown={markdown} updateMarkdown={updateMarkdownHandler} />
           <Preview markdown={markdown} />
         </div>
       </>
   );
-};
+}
 
 Document.propTypes = {
   markdown: PropTypes.string,
-  updateMarkdown: PropTypes.func.isRequired
+  updateMarkdown: PropTypes.func
 };
 
-const mapStateToProps = state => ({
-  markdown: getMarkdown(state)
-});
-
-const mapDispatchToProps = dispatch => ({
-  updateMarkdown({ target }) {
-    dispatch(updateMarkdown(target.value));
-  }
-});
-
-const DocumentContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Document);
-
-export default DocumentContainer;
