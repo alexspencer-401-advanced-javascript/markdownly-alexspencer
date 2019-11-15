@@ -7,7 +7,6 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action) {
-
   switch(action.type) {
     case UPDATE_MARKDOWN:
       return { ...state, files: { ...state.files, [state.active]: action.payload } };

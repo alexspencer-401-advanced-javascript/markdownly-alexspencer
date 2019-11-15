@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Fjalla+One&display=swap');
 
 .Tab {
+
   display: flex;
   align-items: center;
 
@@ -29,5 +30,4 @@
     background-color:rgba(255, 0, 0, 0.425);
 
   }
-
 }
