@@ -23,9 +23,9 @@ const Form = ({ handleSubmit }) => {
 };
 
 Form.propTypes = {
-  title: PropTypes.string.isRequired,
-  handleSubmit: PropTypes.func.isRequired,
-  handleChange: PropTypes.func.isRequired
+  title: PropTypes.string,
+  handleSubmit: PropTypes.func,
+  handleChange: PropTypes.func
 };
 
 export default Form;
